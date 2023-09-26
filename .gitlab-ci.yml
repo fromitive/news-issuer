@@ -1,0 +1,27 @@
+image: python:3.8-buster
+
+stages:
+  - deploy
+  
+before_script:
+  - pip install -r requirements/prod.txt
+
+pages:
+  stage: deploy
+  script:
+  - export TZ="Asia/Seoul"
+  - export TODAY=$(date +"%Y-%m-%d")
+  - echo $BIT_LY_KEY > apikey.txt
+  - echo $TOKEN > token.json
+  - echo "$MAIL_USER" > send_to.txt
+  - python main.py
+  - mkdir public
+  - cp $TODAY.html public/index.html
+  - cp $TODAY.html public/
+  - cp $TODAY.txt  public/
+
+  artifacts:
+    paths:
+    - public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH

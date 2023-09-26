@@ -1,0 +1,8 @@
+requests
+bs4
+watchdog
+Pillow
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+bs4
