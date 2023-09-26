@@ -78,23 +78,23 @@ python generate_token.py
 
 `token.json` 파일이 생성하게 되며 파일의 내용을 gitlab ci/cd 의 `TOKEN` 변수로 갱신합니다.
 
-### 3. Gitlab 뉴스레터 서버 설정
+### 4. Gitlab 뉴스레터 서버 설정
 
-1. `/etc/gitlab/gitlab.rb`에 옵션을 추가합니다.
+#### 4-1. `/etc/gitlab/gitlab.rb`에 옵션을 추가합니다.
 ``` bash
 pages_nginx['custom_gitlab_server_config'] = "location /news/send-news\n{ proxy_pass http://127.0.0.1:8888; \n}"
 ```
 
-2. gitlab-ctl로 gitlab을 다시 설정합니다.
+#### 4-2. gitlab-ctl로 gitlab을 다시 설정합니다.
 
 ``` bash
 gitlab-ctl reconfigure
 gitlab-ctl start
 ```
 
-### 4. 뉴스를 받는 서버 설치
+### 5. 뉴스를 받는 서버 설치
 
-1. news-crawler 에서 선택된 뉴스를 받는 서버를 설치합니다.
+#### 5-1. news-crawler 에서 선택된 뉴스를 받는 서버를 설치합니다.
 
 ``` bash
 cd news-server
