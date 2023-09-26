@@ -37,8 +37,6 @@ Settings > CI/CD > Varialbes 항목에 아래의 변수를 등록합니다.
 | TOKEN | `mailbuild.py` 에서 사용하는 google API 키 `3. Google Gmail API 등록 참고`|
 | MAIL_USER | 메일을 보낼 대상 설정 |
 
----
-
 ### 3. Google Gmail API 등록
 
 메일 전달을 위해 [Google Gmail API](https://console.cloud.google.com/apis/api/gmail.googleapis.com)를 등록해야 합니다.
