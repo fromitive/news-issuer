@@ -43,11 +43,11 @@ Settings > CI/CD > Varialbes 항목에 아래의 변수를 등록합니다.
 
 메일 전달을 위해 [Google Gmail API](https://console.cloud.google.com/apis/api/gmail.googleapis.com)를 등록해야 합니다.
 
-#### 1. 새 프로젝트 생성
+#### 3-1. 새 프로젝트 생성
 
 Google에 로그인 후 프로젝트를 생성합니다.
 
-#### 2. Google Gmail API credentials.json 생성
+#### 3-2. Google Gmail API credentials.json 생성
 프로젝트 생성 후 [Google Gmail API](https://console.cloud.google.com/apis/api/gmail.googleapis.com)에 접속합니다.
 
 좌측의 사용자 인증 정보를 클릭한 후, 사용자 인증 정보 만들기 > OAuth 클라이언트 ID 를 클릭합니다.
@@ -58,13 +58,13 @@ Google에 로그인 후 프로젝트를 생성합니다.
 
 다운로드한 파일 `client_secret.****`의 이름을 `credentials.json`로 변경한 후 clone한 프로젝트 폴더(보통 `news-issuer`)에 올려 놓습니다.
 
-#### 3. 테스트 계정 등록
+#### 3-3. 테스트 계정 등록
 
 [Google Gmail API](https://console.cloud.google.com/apis/api/gmail.googleapis.com)에 접속한 후 좌측에 `OAuth 동의 화면` 메뉴를 클릭합니다.
 
 `테스트 사용자`란에 메일을 보내고자 하는 gmail 주소를 `+ADD USERS`로 추가합니다.
 
-#### 4. 메일 송부 토큰
+#### 3-4. 메일 송부 토큰 생성
 
 **참고: 메일 송부 토큰은 테스트 앱이므로 일주일에 한 번씩 초기화가 됩니다.**
 
@@ -78,7 +78,7 @@ python generate_token.py
 
 `token.json` 파일이 생성하게 되며 파일의 내용을 gitlab ci/cd 의 `TOKEN` 변수로 갱신합니다.
 
-### 3. 뉴스레터 서버 설정
+### 3. Gitlab 뉴스레터 서버 설정
 
 1. `/etc/gitlab/gitlab.rb`에 옵션을 추가합니다.
 ``` bash
